@@ -1,0 +1,16 @@
+{
+  "name": "analytics-test",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "local": "meteor --settings settings.json",
+    "1-build": "NODE_ENV=production meteor build ../analytics-test-build --server https://app.uploop.io",
+    "2-sign-android": "cd ../analytics-test-build/android/ && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 release-unsigned.apk analytics-test",
+    "3-pack-android": "cd ../analytics-test-build/android/ && touch analytics-test.apk && rm analytics-test.apk && $ANDROID_HOME/build-tools/25.0.2/zipalign 4 release-unsigned.apk analytics-test.apk",
+    "4-copy-android": "cd ../analytics-test-build/android/ && cp analytics-test.apk ~/Google\\ Drive/Public/analytics-test.apk"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "meteor-node-stubs": "~0.2.4"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "public": {
+        "analyticsSettings": {
+            "Intercom": {
+                "appId": "aivvv72f",
+                "activator": "#intercom-launcher"
+            }
+        }
+    }
+}
